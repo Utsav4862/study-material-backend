@@ -1,5 +1,6 @@
 const express = require("express");
 // require("dotenv").config({ path: ".env" });
+require("dotenv").config({ path: ".env" });
 require("./config");
 
 const cors = require("cors");
@@ -19,6 +20,6 @@ app.use(
 const routes = require("./Routes/index");
 app.use(cors());
 app.use(express.json());
-// app.use(express.static("uploads"));
+app.use(express.static("uploads"));
 app.use("/api", routes);
 app.listen(port);

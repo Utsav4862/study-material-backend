@@ -7,10 +7,9 @@ const Student = require("../Model/Student");
 const key = "adsfgdlfpowierure304958fkjd";
 
 const signUp = async (req, res) => {
-  console.log(req.body, "asdfsf");
   let exist = await Student.exists({ email: req.body.email });
   const { name, email, password } = req.body;
-  console.log(exist);
+
   if (exist) {
     res.send({ exist: "User Already Exist" });
   } else {
@@ -37,7 +36,6 @@ const login = async (req, res) => {
 };
 
 const getCurrentUser = async (req, res) => {
-  //   console.log(req);
   let user = await req.user;
   res.send(user);
 };
